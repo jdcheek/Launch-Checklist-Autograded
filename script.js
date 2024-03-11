@@ -1,6 +1,6 @@
 // Write your JavaScript code here!
 
-const { formSubmission, myFetch, pickPlanet, addDestinationInfo } = require("./scriptHelper");
+// const { formSubmission, myFetch, pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
   let listedPlanets;
@@ -21,6 +21,11 @@ window.addEventListener("load", function() {
   const fuelLevel = document.querySelector('#fuelLevel')
   const cargoMass = document.querySelector('#cargoMass')
   const list = document.querySelector("#faultyItems");
+  const form = document.querySelector('#formSubmit')
 
-  document.querySelector('#formSubmit').addEventListener('submit', formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass))
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass);
+  })
+  // form.addEventListener('submit', formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass))
 });
