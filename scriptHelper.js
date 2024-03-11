@@ -35,8 +35,12 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   const fuelStatus = document.querySelector('#fuelStatus')
   const cargoStatus = document.querySelector('#cargoStatus')
 
-  pilotStatus.textContent = `Pilot ${pilot} is ready for launch`
-  copilotStatus.textContent = `Co-pilot ${copilot} is ready for launch`
+  if (validateInput(pilot) !== 'Not a Number' || validateInput(copilot) !== 'Not a Number') {
+    alert("Enter valid inputs")
+  } else {
+    pilotStatus.textContent = `Pilot ${pilot} is ready for launch`
+    copilotStatus.textContent = `Co-pilot ${copilot} is ready for launch`
+  }
 
   if (validateInput(fuelLevel) === 'Is a Number') {
     if (Number(fuelLevel) < 10000) {
