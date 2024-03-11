@@ -2,11 +2,10 @@
 
 const { formSubmission, myFetch, pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
-window.addEventListener("load", function(event) {
-  event.preventDefault()
-  let listedPlanets = myFetch()
+window.addEventListener("load", function() {
+  let listedPlanets;
   // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-  let listedPlanetsResponse;
+  let listedPlanetsResponse = myFetch()
   listedPlanetsResponse.then(function(result) {
     listedPlanets = result;
     console.log(listedPlanets);

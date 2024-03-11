@@ -35,7 +35,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   const fuelStatus = document.querySelector('#fuelStatus')
   const cargoStatus = document.querySelector('#cargoStatus')
 
-  list.style.visibility = 'visible'
   pilotStatus.textContent = `Pilot ${pilot} is ready for launch`
   copilotStatus.textContent = `Co-pilot ${copilot} is ready for launch`
 
