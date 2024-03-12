@@ -35,16 +35,16 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   const fuelStatus = document.querySelector('#fuelStatus')
   const cargoStatus = document.querySelector('#cargoStatus')
 
-  if (validateInput(pilot) !== 'Not a Number' || validateInput(copilot) !== 'Not a Number') {
+  if (validateInput(pilot) === 'Empty' || validateInput(copilot) === 'Empty' || validateInput(fuelLevel) === 'Empty' || validateInput(cargoLevel) === 'Empty') {
     alert("Enter valid inputs")
   } else {
     pilotStatus.textContent = `Pilot ${pilot} is ready for launch`
     copilotStatus.textContent = `Co-pilot ${copilot} is ready for launch`
+    list.style.visibility = 'visible'
   }
 
   if (validateInput(fuelLevel) === 'Is a Number') {
     if (Number(fuelLevel) < 10000) {
-      list.style.visibility = 'visible'
       h2.style.color = 'red'
       h2.textContent = 'Shuttle Not Ready for Launch'
       fuelStatus.textContent = 'Fuel level too low for launch'
@@ -55,7 +55,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
   if (validateInput(cargoLevel) === 'Is a Number') {
     if (Number(cargoLevel) > 10000) {
-      list.style.visibility = 'visible'
       h2.style.color = 'red'
       h2.innerText = 'Shuttle Not Ready for Launch'
       cargoStatus.textContent = 'Cargo mass too heavy for launch'
@@ -63,7 +62,9 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
       cargoStatus.textContent = 'Cargo mass low enough for launch'
     }
   }
-  if (fuelLevel >= 10000 && cargoLevel <= 10000) {
+
+  if (Number(fuelLevel) >= 10000 && Number(cargoLevel) <= 10000) {
+    list.style.visibility = 'visible'
     h2.textContent = 'Shuttle is Ready for Launch';
     h2.style.color = 'green';
   }

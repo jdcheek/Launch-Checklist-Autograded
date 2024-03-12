@@ -1,7 +1,5 @@
 // Write your JavaScript code here!
 
-// const { formSubmission, myFetch, pickPlanet, addDestinationInfo } = require("./scriptHelper");
-
 window.addEventListener("load", function() {
   let listedPlanets;
   // Set listedPlanetsResponse equal to the value returned by calling myFetch()
@@ -16,16 +14,15 @@ window.addEventListener("load", function() {
     addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image)
   })
 
-  const pilot = document.querySelector('#pilotName')
-  const copilot = document.querySelector('#copilotName')
-  const fuelLevel = document.querySelector('#fuelLevel')
-  const cargoMass = document.querySelector('#cargoMass')
+  const pilot = document.querySelector('input[name="pilotName"]').value
+  const copilot = document.querySelector('input[name="copilotName"]').value
+  const fuelLevel = document.querySelector('input[name="fuelLevel"]').value
+  const cargoMass = document.querySelector('input[name="cargoMass"]').value
   const list = document.querySelector("#faultyItems");
-  const form = document.querySelector('#formSubmit')
+  const form = document.querySelector('form')
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault();
     formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass);
+    event.preventDefault();
   })
-  // form.addEventListener('submit', formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass))
 });
