@@ -35,6 +35,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   const fuelStatus = document.querySelector('#fuelStatus')
   const cargoStatus = document.querySelector('#cargoStatus')
 
+
   if (validateInput(pilot) === 'Empty' || validateInput(copilot) === 'Empty' || validateInput(fuelLevel) === 'Empty' || validateInput(cargoLevel) === 'Empty') {
     alert("Enter valid inputs")
   } else {
